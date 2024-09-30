@@ -178,3 +178,5 @@ alias vim=nvim
 export PATH="$PATH:/opt/nvim-linux64/bin"
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 export COLORTERM=truecolor
+
+alias kubectl="minikube kubectl --"
