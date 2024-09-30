@@ -46,9 +46,9 @@ keymap.set("n", "<leader>qc", ":cclose<CR>", { desc = "Close quickfix list" })
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", { desc = "Toggle maximize tab" })
 
 -- Nvim-tree
-keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
-keymap.set("n", "<leader>er", ":NvimTreeFocus<CR>") -- toggle focus to file explorer
-keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>") -- find file in file explorer
+-- keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
+-- keymap.set("n", "<leader>er", ":NvimTreeFocus<CR>") -- toggle focus to file explorer
+-- keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>") -- find file in file explorer
 
 -- Telescope
 keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = " Find Files" })
