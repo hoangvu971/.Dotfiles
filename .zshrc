@@ -180,3 +180,5 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 export COLORTERM=truecolor
 
 alias kubectl="minikube kubectl --"
+
+alias k="kubectl"

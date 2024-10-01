@@ -58,7 +58,8 @@ keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = "
 keymap.set('n', '<leader>fs', require('telescope.builtin').current_buffer_fuzzy_find, { desc = " Fuzzy Find in Buffer" })
 keymap.set('n', '<leader>fo', require('telescope.builtin').lsp_document_symbols, { desc = " LSP Document Symbols" })
 keymap.set('n', '<leader>fi', require('telescope.builtin').lsp_incoming_calls, { desc = " LSP Incoming Calls" })
-keymap.set('n', '<leader>fm', function() require('telescope.builtin').treesitter({default_text=":method:"}) end, { desc = " Treesitter Method Search" })
+keymap.set('n', '<leader>fm', function() require('telescope.builtin').treesitter({ default_text = ":method:" }) end,
+  { desc = " Treesitter Method Search" })
 
 -- Git-blame
 keymap.set("n", "<leader>gb", ":GitBlameToggle<CR>", { desc = "Toggle git blame" })
@@ -96,23 +97,39 @@ keymap.set("i", "<C-Space>", "<cmd>lua vim.lsp.buf.completion()<CR>", { desc = "
 
 -- Debugging
 keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Toggle breakpoint" })
-keymap.set("n", "<leader>bc", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", { desc = "Set conditional breakpoint" })
-keymap.set("n", "<leader>bl", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", { desc = "Set log point" })
+keymap.set("n", "<leader>bc", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
+  { desc = "Set conditional breakpoint" })
+keymap.set("n", "<leader>bl", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
+  { desc = "Set log point" })
 keymap.set("n", "<leader>br", "<cmd>lua require'dap'.clear_breakpoints()<cr>", { desc = "Clear breakpoints" })
 keymap.set("n", "<leader>ba", "<cmd>Telescope dap list_breakpoints<cr>", { desc = "List breakpoints" })
 keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", { desc = "Continue" })
 keymap.set("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>", { desc = "Step over" })
 keymap.set("n", "<leader>dk", "<cmd>lua require'dap'.step_into()<cr>", { desc = "Step into" })
 keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>", { desc = "Step out" })
-keymap.set("n", "<leader>dd", function() require("dap").disconnect() require("dapui").close() end, { desc = "Disconnect debugger" })
-keymap.set("n", "<leader>dt", function() require("dap").terminate() require("dapui").close() end, { desc = "Terminate debug session" })
+keymap.set("n", "<leader>dd", function()
+  require("dap").disconnect()
+  require("dapui").close()
+end, { desc = "Disconnect debugger" })
+keymap.set("n", "<leader>dt", function()
+  require("dap").terminate()
+  require("dapui").close()
+end, { desc = "Terminate debug session" })
 keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", { desc = "Toggle REPL" })
 keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", { desc = "Run last debug configuration" })
 keymap.set("n", "<leader>di", function() require("dap.ui.widgets").hover() end, { desc = "Debug: Hover" })
-keymap.set("n", "<leader>d?", function() local widgets = require "dap.ui.widgets" widgets.centered_float(widgets.scopes) end, { desc = "Debug: Scopes" })
+keymap.set("n", "<leader>d?",
+  function()
+    local widgets = require "dap.ui.widgets"
+    widgets.centered_float(widgets.scopes)
+  end, { desc = "Debug: Scopes" })
 keymap.set("n", "<leader>df", "<cmd>Telescope dap frames<cr>", { desc = "Debug: Frames" })
 keymap.set("n", "<leader>dh", "<cmd>Telescope dap commands<cr>", { desc = "Debug: Commands" })
-keymap.set("n", "<leader>de", function() require("telescope.builtin").diagnostics { default_text = ":E:" } end, { desc = "Debug: Diagnostics" })
+keymap.set("n", "<leader>de", function() require("telescope.builtin").diagnostics { default_text = ":E:" } end,
+  { desc = "Debug: Diagnostics" })
 
 -- Switch environment
 keymap.set("n", "<leader>me", function() require("swenv.api").pick_venv() end, { desc = "Choose Python Environment" })
+
+-- Kubectl
+vim.keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true })
