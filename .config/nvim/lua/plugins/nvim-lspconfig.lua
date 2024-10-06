@@ -15,10 +15,10 @@ return {
     { "WhoIsSethDaniel/mason-tool-installer.nvim" },
     -- Useful status updates for LSP
     -- https://github.com/j-hui/fidget.nvim
-    { "j-hui/fidget.nvim", opts = {} },
+    { "j-hui/fidget.nvim",                        opts = {} },
     -- Additional lua configuration, makes nvim stuff amazing!
     -- https://github.com/folke/neodev.nvim
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",                        opts = {} },
   },
   config = function()
     require("mason").setup()
