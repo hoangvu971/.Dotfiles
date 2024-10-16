@@ -35,6 +35,9 @@ return {
         "quick_lint_js",
         "yamlls",
         "pyright",
+        "docker_compose_language_service",
+        "dockerls",
+        "biome",
       },
     }
     require("mason-tool-installer").setup {
@@ -46,6 +49,9 @@ return {
         "isort",
         "mypy",
         "pylint",
+        "hadolint",
+        "biome",
+        "jsonlint",
       },
     }
     -- There is an issue with mason-tools-installer running with VeryLazy, since it triggers on VimEnter which has already occurred prior to this plugin loading so we need to call install explicitly

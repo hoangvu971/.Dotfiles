@@ -4,7 +4,6 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      -- any custom which-key configuration you want here
     },
     keys = {
       {
@@ -15,6 +14,11 @@ return {
         desc = "Buffer Local Keymaps (which-key)",
       },
     },
+    config = function(_, opts)
+      require("which-key").setup(opts)
+      -- Add this line to set the highlight group
+      vim.cmd [[highlight WhichKeyFloat ctermbg=NONE ctermfg=NONE]]
+    end,
   },
   -- mini.nvim plugin
   {

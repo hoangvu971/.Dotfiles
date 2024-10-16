@@ -182,3 +182,11 @@ export COLORTERM=truecolor
 alias kubectl="minikube kubectl --"
 
 alias k="kubectl"
+
+if [[ -n "$TMUX" ]] then
+  export flavor='conda'
+  source ~/.dotfiles/.config/tmux/plugins/tmux-conda-inherit/conda-inherit.sh
+fi
+
+# Automatically save Conda environment in tmux pane title
+export PROMPT_COMMAND='echo -ne "\033]2;$(basename $CONDA_PREFIX)\007"'
