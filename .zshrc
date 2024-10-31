@@ -3,7 +3,11 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="daveverwer"
+# ZSH_THEME="daveverwer"
+
+eval "$(oh-my-posh init zsh)"
+
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh-themes/catppuccin_mocha.omp.json)"
 
 plugins=(
     git
@@ -79,9 +83,9 @@ eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 alias cd="z"
 alias vim=nvim
-# export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux64/bin"
 # fpath+=("$(brew --prefix)/share/zsh/site-functions")
-# export COLORTERM=truecolor
+export COLORTERM=truecolor
 
 alias kubectl="minikube kubectl --"
 
@@ -99,3 +103,4 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
